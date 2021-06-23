@@ -14,5 +14,8 @@ public class Model {
 
     }
 
+    public void save(String text){
+        //сохранение данный в бд
+    }
 
 }

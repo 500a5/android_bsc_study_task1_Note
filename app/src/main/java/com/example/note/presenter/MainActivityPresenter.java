@@ -14,6 +14,9 @@ public class MainActivityPresenter {
        this.view = view;
     }
 
-    public static void save() {
+    public void save() {
+        model.save(view.getText());
+        view.showToast();
+
     }
 }

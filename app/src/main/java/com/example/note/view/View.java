@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -25,24 +26,22 @@ public class View extends AppCompatActivity {
     }
     private void init(){
         presenter = new MainActivityPresenter(this);
-        presenter = new MainActivityPresenter(this);
+
 
         editText = (EditText) findViewById(R.id.editText);
         findViewById(R.id.button).setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                MainActivityPresenter.save();
-                showToast();
+                presenter.save();
             }
         });
-
-
-
-
-
-
     }
     public void showToast() {
         Toast.makeText(this, "Данные сохранены", Toast.LENGTH_SHORT).show();
+    }
+
+    public String getText(){
+        Editable text = editText.getText();
+        return text.toString();
     }
 }
