@@ -44,4 +44,7 @@ public class View extends AppCompatActivity {
         Editable text = editText.getText();
         return text.toString();
     }
+    public void putText(String s){
+         editText.setText(s);
+    }
 }

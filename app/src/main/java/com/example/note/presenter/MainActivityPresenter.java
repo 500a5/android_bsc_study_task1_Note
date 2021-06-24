@@ -17,6 +17,9 @@ public class MainActivityPresenter {
     public void save() {
         model.save(view.getText());
         view.showToast();
+    }
 
+    public void putText(String s){
+        view.putText(s);
     }
 }
