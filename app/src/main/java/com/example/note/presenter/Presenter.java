@@ -19,9 +19,9 @@ public class Presenter implements ViewInterface.Presenter {
        this.view = view;
     }
 
-    public void save(String s) {
+    public void save() {
         model.save(view.getText());
-        view.putText(s);
+        view.setText(view.getText());
         view.showToast();
     }
 

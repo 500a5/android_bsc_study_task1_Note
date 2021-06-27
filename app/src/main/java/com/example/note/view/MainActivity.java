@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements ViewInterface.Mai
         findViewById(R.id.button).setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                presenter.save(getText());
+                presenter.save();
             }
         });
     }
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements ViewInterface.Mai
         Editable text = editText.getText();
         return text.toString();
     }
-    public void putText(String s){
+    public void setText(String s){
          editText.setText(s);
     }
 }
