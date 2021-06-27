@@ -4,19 +4,18 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import android.os.IInterface;
 import android.text.Editable;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.note.R;
-import com.example.note.model.Model;
-import com.example.note.presenter.MainActivityPresenter;
+import com.example.note.presenter.Presenter;
 
-public class View extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ViewInterface.MainActivity {
 
     private  EditText editText;
-    private MainActivityPresenter presenter;
+    private Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,18 +23,20 @@ public class View extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
     }
+
     private void init(){
-        presenter = new MainActivityPresenter(this);
+        presenter = new Presenter(this);
 
 
         editText = (EditText) findViewById(R.id.editText);
         findViewById(R.id.button).setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                presenter.save();
+                presenter.save(getText());
             }
         });
     }
+
     public void showToast() {
         Toast.makeText(this, "Данные сохранены", Toast.LENGTH_SHORT).show();
     }
